@@ -72,6 +72,9 @@ def pillionaire(word):
                     results.append("Position %d: %s" % (position, numbers + ' -> ' + txt))
                 last_char = piece[-1]
 
+                if len(results) > 20:
+                    break
+
             sys.stdout.write(u"\u001b[20D" + "Done... 100%")
             sys.stdout.flush()
             print ""
