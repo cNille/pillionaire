@@ -24,9 +24,7 @@ def ascii_to_letters(numbers):
     while i < size:
         x = numbers[i]
         y = numbers[i+1] if i < size-1 else '' 
-        #print x
         if x == '1' or x == '2' and y != ''and int(y) < 7:
-            #print x,y
             ch = chr(int(x+y)+96) 
             result += ch
             i+=2
@@ -37,19 +35,11 @@ def ascii_to_letters(numbers):
             i+=1
     return result
 
-#print ascii_to_letters('345')
-#print ascii_to_letters('381891926')
-
-
 def letter_to_ascii(word):
     return "".join([
         str(ord(c) - 96)
         for c in word.lower()
     ])
-
-#word, search = letter_to_ascii('Nille')
-#word, search = letter_to_ascii('Cnille')
-#word, search = letter_to_ascii('Christopher')
 
 def pillionaire(word):
     search = letter_to_ascii(word)
@@ -75,7 +65,7 @@ def pillionaire(word):
                     after = piece[idx+len(search):idx+len(search)+4] 
                     numbers = white + before + green + found + white + after
                     b = white + ascii_to_letters(before)
-                    f = green + ascii_to_letters(found)
+                    f = green + word 
                     a = white + ascii_to_letters(after)
                     txt = b+f+a 
 
@@ -94,7 +84,5 @@ def pillionaire(word):
     except IOError:
         print "ERROR:"
         print "./pi-billion.txt is missing. Download from: %s" % "https://stuff.mit.edu/afs/sipb/contrib/pi/"
-
-
 
 pillionaire(sys.argv[-1])
