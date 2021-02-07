@@ -60,9 +60,9 @@ def pillionaire(word, stop_at_first):
                 if search in piece:
                     idx = piece.index(search)
                     position = idx + count *1024
-                    before =  piece[idx-2:idx]
+                    before =  piece[idx-5:idx]
                     found = piece[idx:idx+len(search)]
-                    after = piece[idx+len(search):idx+len(search)+2] 
+                    after = piece[idx+len(search):idx+len(search)+5] 
                     numbers = white + before + green + found + white + after
                     b = white + ascii_to_letters(before)
                     f = green + word 
@@ -98,7 +98,6 @@ if len(sys.argv) == 2:
 
 else:
     print "Who is most PI in sana?"
-
     sanians = [
         "alex",
         "anna",
@@ -107,8 +106,8 @@ else:
         "elyes",
         "emil",
         "faruk",
-        "fredde",
         "fredrik",
+        "jaro",
         "jaromir",
         "jasmine",
         "jenny",
@@ -118,10 +117,12 @@ else:
         "ludvig",
         "lundgren",
         "mai",
+        "miru",
         "miruna",
         "nille",
         "oscar",
         "patrik",
+        "petter",
         "samuel",
         "seb",
         "sebastian",
@@ -132,8 +133,6 @@ else:
         "victor",
         "viktor",
             ]
-
-
     results = [(s,pillionaire(s, True)) for s in sanians]
     no_match = [r[0] for r in results if not r[1]]
     results = [r[1] for r in results if r[1]]
